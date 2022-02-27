@@ -1,4 +1,13 @@
 // Assignment code here
+function generatePassword() {
+  var confirmLength = (prompt("How many characters will be included?"));
+
+  // Loop if answer is outside the parameters 
+  while(confirmLength <= 7 || confirmLength >= 129) {
+      confirm("Must be between 8-128 characters.");
+      var confirmLength =(prompt("How many characters will be included?"));
+      } 
+    }
 
 
 // Get references to the #generate element
