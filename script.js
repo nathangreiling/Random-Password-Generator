@@ -6,6 +6,7 @@ var confirmSpecials;
 var confirmNumerics;
 var confirmUppers;
 var confirmLowers;
+var password = [];
 
 //Arrays used to generate password
 var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
@@ -35,9 +36,21 @@ function generatePassword() {
       var confirmLowers = confirm("Include lowercase characters?");
       var confirmUppers = confirm("Include uppercase characters?");   
     } 
-  }
-
-
+// Conditional Statements to create password array
+      if (confirmSpecials) {
+        password = password.concat(specials)    
+      }
+      if (confirmNumerics) {
+        password = password.concat(number)
+      }
+      if (confirmLowers) {
+        password = password.concat(lowercase)
+      }
+      if (confirmUppers) {
+        password = password.concat(uppercase)
+      }
+      console.log(password)
+    }
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
