@@ -6,15 +6,16 @@ var confirmSpecials;
 var confirmNumerics;
 var confirmUppers;
 var confirmLowers;
-var password = [];
+var passwordOutcome = [];
+var newPassword= ""
 
-//Arrays used to generate password
-var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+//Arrays used to generate password content
+var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specials = ["!", "%", "&", ",", "*", "+", "-", ".", "/", "<", ">", "?","~"];
 var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-// Prompt's user input
+// Prompt's user input for the password
 function generatePassword() {
   var confirmLength = (prompt("How many characters will be included?"));
 
@@ -36,21 +37,30 @@ function generatePassword() {
       var confirmLowers = confirm("Include lowercase characters?");
       var confirmUppers = confirm("Include uppercase characters?");   
     } 
-// Conditional Statements to create password array
-      if (confirmSpecials) {
-        password = password.concat(specials)    
-      }
+
+// Conditional if statements to create the password array based off user input
       if (confirmNumerics) {
-        password = password.concat(number)
+        passwordOutcome = passwordOutcome.concat(numbers)    
+      }
+      if (confirmSpecials) {
+        passwordOutcome = passwordOutcome.concat(specials)
       }
       if (confirmLowers) {
-        password = password.concat(lowercase)
+        passwordOutcome = passwordOutcome.concat(lowercase)
       }
       if (confirmUppers) {
-        password = password.concat(uppercase)
+        passwordOutcome = passwordOutcome.concat(uppercase)
       }
-      console.log(password)
-    }
+        
+// For loop of user inputs & randomizer
+      for (var i = 0; i <confirmLength; i++){
+        newPassword = newPassword + passwordOutcome[Math.floor(Math.random() * passwordOutcome.length)];
+      }
+
+// Displays the new randomly generated password to the text area of the HTML upon function completion
+      return newPassword;
+}
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
