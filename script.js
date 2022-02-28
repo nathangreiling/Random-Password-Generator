@@ -61,6 +61,11 @@ function generatePassword() {
       return newPassword;
 }
 
+// Attempt to clear user's inputs so that upon activating the function again, only the intended data will be shown.
+function reset() {
+  document.getElementById("password");
+  reset("password");
+}
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
