@@ -9,7 +9,7 @@ var confirmLowers;
 var passwordOutcome = [];
 var newPassword= ""
 
-//Arrays used to generate password content
+//Arrays used containing password content
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specials = ["!", "%", "&", ",", "*", "+", "-", ".", "/", "<", ">", "?","~"];
 var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -58,10 +58,11 @@ function generatePassword() {
       }
 
 // Displays the new randomly generated password to the text area of the HTML upon function completion
-      return newPassword;
+      return newPassword;     
 }
 
 // Attempt to clear user's inputs so that upon activating the function again, only the intended data will be shown.
+// Tried wrapping the logic in a "start" function and it broke the code. ie: var startGame(){...}; startGame();
 function reset() {
   document.getElementById("password");
   reset("password");
@@ -80,3 +81,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
